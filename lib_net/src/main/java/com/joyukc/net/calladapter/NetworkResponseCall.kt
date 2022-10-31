@@ -34,7 +34,7 @@ class NetworkResponseCall<T : Any, U : Any>(
     override fun enqueue(callback: Callback<NetworkResponse<T, U>>) {
         delegateCall.enqueue(object : Callback<T> {
             override fun onResponse(call: Call<T>, response: Response<T>) {
-
+                //网络请求成功
                 val body = response.body()
                 val code = response.code()
                 val error = response.errorBody()
@@ -78,6 +78,7 @@ class NetworkResponseCall<T : Any, U : Any>(
             }
 
             override fun onFailure(call: Call<T>, t: Throwable) {
+                //网络请求失败
                 val networkResponse = when (t) {
                     is IOException -> NetworkResponse.NetworkError(t)
                     else -> NetworkResponse.UnknownError(t)

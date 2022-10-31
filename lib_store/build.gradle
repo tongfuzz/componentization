@@ -1,21 +1,17 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
-    id 'com.google.dagger.hilt.android'
 }
 
 android {
-    compileSdk 32
+    compileSdk rootProject.ext.compileSdk
 
     defaultConfig {
-        applicationId "com.joyukc.mobiletour"
-        minSdk 21
-        targetSdk 32
-        versionCode 1
-        versionName "1.0"
+        minSdk rootProject.ext.minSdk
+        targetSdk rootProject.ext.targetSdk
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -31,12 +27,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    dataBinding {
-        enabled true
-    }
 }
 
 dependencies {
+
     implementation rootProject.ext.dependencies.core_ktx
     implementation rootProject.ext.dependencies.appcompat
     implementation rootProject.ext.dependencies.material
@@ -44,8 +38,6 @@ dependencies {
     implementation rootProject.ext.dependencies.android_junit
     implementation rootProject.ext.dependencies.espresso_core
 
-    implementation rootProject.ext.dependencies.hilt_android
-    kapt rootProject.ext.dependencies.hilt_compiler
-    implementation project(path: ':lib_imageloader')
-    implementation project(path: ':lib_store')
+    //mmkv
+    implementation rootProject.ext.dependencies.mmkv
 }

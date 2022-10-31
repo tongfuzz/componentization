@@ -15,3 +15,5 @@ dependencyResolutionManagement {
 rootProject.name = "ysx"
 include ':app'
 include ':lib_net'
+include ':lib_imageloader'
+include ':lib_store'

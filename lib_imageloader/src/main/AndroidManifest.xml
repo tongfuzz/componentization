@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.joyukc.lib_imageloader">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!--  允许glide去监听网路状态，以便在网络恢复时对重新开始失败的网络请求  -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+</manifest>

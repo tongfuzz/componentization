@@ -22,12 +22,18 @@ fun main() = runBlocking {
     when (list) {
         is Result.Success<List<Category>> -> {
             println("list size is ${list.data?.size}")
+            list.body.apply {
+
+            }
         }
         is Result.Error -> {
             println("error msg is ${list.errorMsg}")
         }
         is Result.Failure -> {
             println("failure msg is ${list.body}")
+        }
+        else->{
+
         }
     }
 }
