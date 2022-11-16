@@ -11,7 +11,7 @@ import com.tencent.mmkv.MMKV
  * @desc  SharedPreference 存储实现类
  *
  */
-class PreferenceStoreImpl(val mmkv: MMKV) : PreferenceStore {
+internal class PreferenceStoreImpl internal constructor(val mmkv: MMKV) : PreferenceStore {
 
 
     companion object {

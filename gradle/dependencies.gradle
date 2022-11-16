@@ -12,6 +12,7 @@ ext {
             appcompat                : 'androidx.appcompat:appcompat:1.3.0',
             material                 : 'com.google.android.material:material:1.4.0',
             android_junit            : 'androidx.test.ext:junit:1.1.3',
+            android_junit_kt         : 'androidx.test.ext:junit-ktx:1.1.3',
             junit                    : 'junit:junit:4.13.2',
             espresso_core            : 'androidx.test.espresso:espresso-core:3.4.0',
             hilt_android             : "com.google.dagger:hilt-android:$version_hilt",
@@ -23,7 +24,9 @@ ext {
             glide                    : "com.github.bumptech.glide:glide:$version_glide",
             glide_compiler           : "com.github.bumptech.glide:compiler:$version_glide",
             glide_okhttp3_integration: "com.github.bumptech.glide:okhttp3-integration:4.11.0",
-            mmkv                     : "com.tencent:mmkv:1.2.14"
-
+            mmkv                     : "com.tencent:mmkv:1.2.14",
+            gson                     : 'com.google.code.gson:gson:2.8.5',
+            leakcanary               : 'com.squareup.leakcanary:leakcanary-android:2.9.1',
+            loadsir                  : 'com.kingja.loadsir:loadsir:1.3.8',
     ]
 }

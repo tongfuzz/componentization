@@ -75,7 +75,7 @@ open interface PreferenceStore {
          * @param rootPath 存储的根目录
          * @return
          */
-        fun get(name: String, mode: Int = 1, cryptKey: String? = null, rootPath: String? = null): PreferenceStore {
+        fun getStore(name: String, mode: Int = 1, cryptKey: String? = null, rootPath: String? = null): PreferenceStore {
             checkInit()
             return PreferenceStoreImpl(MMKV.mmkvWithID(name, mode, cryptKey, rootPath))
         }

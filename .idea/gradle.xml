@@ -13,8 +13,13 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/lib_imageloader" />
+            <option value="$PROJECT_DIR$/lib_log" />
             <option value="$PROJECT_DIR$/lib_net" />
+            <option value="$PROJECT_DIR$/lib_pagestate" />
             <option value="$PROJECT_DIR$/lib_store" />
+            <option value="$PROJECT_DIR$/module_base" />
+            <option value="$PROJECT_DIR$/module_home" />
+            <option value="$PROJECT_DIR$/module_mine" />
           </set>
         </option>
       </GradleProjectSettings>

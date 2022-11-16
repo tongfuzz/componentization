@@ -1,0 +1,70 @@
+if (isModule.toBoolean()) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
+
+apply plugin: 'org.jetbrains.kotlin.android'
+
+android {
+    compileSdk rootProject.ext.compileSdk
+
+    defaultConfig {
+        if (isModule.toBoolean()) {
+            applicationId "com.joyukc.mine"
+        }
+        minSdk rootProject.ext.minSdk
+        targetSdk rootProject.ext.targetSdk
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    sourceSets {
+        main {
+            if (isModule.toBoolean()) {
+                manifest.srcFile 'src/main/java/debug/module/AndroidManifest.xml'
+                res.srcDirs+='src/main/java/debug/res'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+                java {
+                    exclude 'debug/**'
+                }
+            }
+        }
+    }
+
+    resourcePrefix "mine_"
+}
+
+dependencies {
+
+    implementation rootProject.ext.dependencies.core_ktx
+    implementation rootProject.ext.dependencies.appcompat
+    implementation rootProject.ext.dependencies.material
+    testImplementation rootProject.ext.dependencies.junit
+    androidTestImplementation rootProject.ext.dependencies.android_junit
+    androidTestImplementation rootProject.ext.dependencies.android_junit_kt
+    androidTestImplementation rootProject.ext.dependencies.espresso_core
+
+    implementation project(":module_base")
+}

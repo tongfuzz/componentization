@@ -9,9 +9,15 @@ import com.joyukc.lib_imageloader.ImageLoader
 import com.joyukc.lib_imageloader.options.DisplayOptions
 import com.joyukc.lib_imageloader.options.SourceType
 import com.joyukc.lib_imageloader.options.TransitionOptions
+import com.joyukc.log.TLog
+import com.joyukc.log.TLogManager
+import com.joyukc.log.printer.TViewPrinter
 import com.joyukc.mobiletour.R
 import com.joyukc.mobiletour.databinding.ActivityTestBinding
 import com.joyukc.store.PreferenceStore
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 /**
  *
@@ -57,6 +63,23 @@ class AppTestActivity : AppCompatActivity() {
         val userInf = PreferenceStore.defaultStore().getParcelable("user", UserInf::class.java)
         println("user name is ${userInf?.name}")
 
+
+        binding.btnLog.setOnClickListener {
+            GlobalScope.launch {
+                launch(Dispatchers.IO) {
+                    TLog.v("现在时间是${System.currentTimeMillis()}")
+                }
+            }
+//            TLog.d("现在时间是${System.currentTimeMillis()}")
+//            TLog.i("现在时间是${System.currentTimeMillis()}")
+//            TLog.w("现在时间是${System.currentTimeMillis()}")
+//            TLog.e("现在时间是${System.currentTimeMillis()}")
+//            TLog.a("现在时间是${System.currentTimeMillis()}")
+            //startActivity(Intent(this, MainActivity::class.java))
+        }
+
+        TLogManager.getInstance().addPrinter(TViewPrinter(this))
+        TLog.e("2022", "tongfu", "haha")
 
 //        GlobalScope.launch {
 //            ImageLoader.clearCache(this@AppTestActivity)
